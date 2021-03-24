@@ -47,8 +47,14 @@ class FirebaseAuthService {
     return _firebaseAuth.signOut();
   }
 
-  Future<UserModel> currentUser() async {
-    final user = await _firebaseAuth.currentUser;
-    return _userFromFirebase(user);
+  // Future<UserModel> currentUser() async {
+  //   final user = await _firebaseAuth.currentUser;
+  //   return _userFromFirebase(user);
+  // }
+
+  currentUser() {
+    final User user = _firebaseAuth.currentUser;
+    final uid = user.email.toString();
+    return uid;
   }
 }

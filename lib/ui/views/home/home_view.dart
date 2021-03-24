@@ -8,6 +8,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userId = FirebaseAuthService().currentUser();
     return Scaffold(
       body: Center(
         child: Column(
@@ -20,6 +21,7 @@ class HomeView extends StatelessWidget {
               ),
             ),
             const Spacer(),
+            Text(userId),
             ElevatedButton(
               onPressed: () {
                 context.read<FirebaseAuthService>().signOut();
