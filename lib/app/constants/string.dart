@@ -4,7 +4,7 @@ class Strings {
 
   // Authentication
   static const String signInMessage = 'Please sign in';
-  static const String anonymousSignUp = 'Anonymous sign in';
+  static const String anonymousSignUp = 'Sign in Anonymously';
   static const String signOut = 'Sign out';
 
   // General
