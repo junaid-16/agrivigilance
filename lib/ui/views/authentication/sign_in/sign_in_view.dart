@@ -50,20 +50,6 @@ class SignInViewBody extends StatelessWidget {
       child: CircularProgressIndicator(),
     );
   }
-
-  // Column _signInButtons(BuildContext context) {
-  //   return Column(
-  //     children: <Widget>[
-  //       Spacer(),
-  //       AnonymousSignInButton(),
-  //       SizedBox(
-  //         height: 20,
-  //       ),
-  //       GoogleSignInButton(),
-  //       Spacer(),
-  //     ],
-  //   );
-  // }
 }
 
 class SignInWidget extends StatelessWidget {
@@ -147,7 +133,21 @@ class SignInWidget extends StatelessWidget {
   }
 }
 
-class InputForm extends StatelessWidget {
+class InputForm extends StatefulWidget {
+  @override
+  _InputFormState createState() => _InputFormState();
+}
+
+class _InputFormState extends State<InputForm> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   final snackBar = SnackBar(
       content:
           Text("乁(ツ゚)ㄏ Try remembering your password... We Won't help you!"));
@@ -160,6 +160,7 @@ class InputForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextFormField(
+            controller: emailController,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -178,6 +179,7 @@ class InputForm extends StatelessWidget {
             ),
           ),
           TextFormField(
+            controller: passwordController,
             obscureText: true,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
