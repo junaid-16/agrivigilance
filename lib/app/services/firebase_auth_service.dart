@@ -57,4 +57,12 @@ class FirebaseAuthService {
     final uid = user.uid.toString();
     return uid;
   }
+
+  Future<String> signInWithEmailAndPassword(
+      String email, String password) async {
+    return (await _firebaseAuth.signInWithEmailAndPassword(
+            email: email, password: password))
+        .user
+        .uid;
+  }
 }
