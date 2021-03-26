@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:agrivigilance/app/constants/string.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/sign_in_view_model.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/anonymous_sign_in_button.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/google_sign_in_button.dart';
@@ -41,7 +40,7 @@ class SignInViewBody extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-        Center(child: isLoading ? _loadingIndicator() : signInWidget()),
+        Center(child: isLoading ? _loadingIndicator() : SignInWidget()),
       ],
     );
   }
@@ -67,7 +66,7 @@ class SignInViewBody extends StatelessWidget {
   // }
 }
 
-class signInWidget extends StatelessWidget {
+class SignInWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -106,7 +105,7 @@ class signInWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                inputForm(),
+                InputForm(),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: SizedBox(
@@ -135,8 +134,8 @@ class signInWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        signInButton(GoogleSignInButton()),
-                        signInButton(AnonymousSignInButton()),
+                        SignInButton(GoogleSignInButton()),
+                        SignInButton(AnonymousSignInButton()),
                       ],
                     ),
                   ],
@@ -148,7 +147,7 @@ class signInWidget extends StatelessWidget {
   }
 }
 
-class inputForm extends StatelessWidget {
+class InputForm extends StatelessWidget {
   final snackBar = SnackBar(
       content:
           Text("乁(ツ゚)ㄏ Try remembering your password... We Won't help you!"));
@@ -213,9 +212,10 @@ class inputForm extends StatelessWidget {
   }
 }
 
-class signInButton extends StatelessWidget {
+// ignore: must_be_immutable
+class SignInButton extends StatelessWidget {
   Widget child;
-  signInButton(this.child);
+  SignInButton(this.child);
 
   @override
   Widget build(BuildContext context) {

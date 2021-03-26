@@ -7,8 +7,14 @@
         {
             "name": "agrivigilance",
             "request": "launch",
-            "type": "dart",
-            "args": ["-d", "web-server","--web-port", "8000"],
-        }
+            "type": "pwa-chrome",
+            "url": "http://localhost:5000",
+        },
+        // {
+        //     "name": "agrivigilance",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "args": ["-d", "chrome","--web-port", "5000"],
+        // }
     ]
 }
