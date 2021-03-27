@@ -53,6 +53,10 @@ class SignInViewBody extends StatelessWidget {
 }
 
 class SignInWidget extends StatelessWidget {
+  String email, password;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -91,14 +95,19 @@ class SignInWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                InputForm(),
+                InputForm(
+                    emailController: emailController,
+                    passwordController: passwordController),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: SizedBox(
                     height: 50,
                     width: 300,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          email = emailController.text;
+                          password = passwordController.text;
+                        },
                         child: Text(
                           "LOGIN",
                           style: TextStyle(fontSize: 17),
@@ -134,20 +143,20 @@ class SignInWidget extends StatelessWidget {
 }
 
 class InputForm extends StatefulWidget {
+  const InputForm({
+    Key key,
+    @required this.emailController,
+    @required this.passwordController,
+  }) : super(key: key);
+
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+
   @override
   _InputFormState createState() => _InputFormState();
 }
 
 class _InputFormState extends State<InputForm> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
   final snackBar = SnackBar(
       content:
           Text("乁(ツ゚)ㄏ Try remembering your password... We Won't help you!"));
@@ -160,7 +169,7 @@ class _InputFormState extends State<InputForm> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextFormField(
-            controller: emailController,
+            controller: widget.emailController,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -179,7 +188,7 @@ class _InputFormState extends State<InputForm> {
             ),
           ),
           TextFormField(
-            controller: passwordController,
+            controller: widget.passwordController,
             obscureText: true,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
