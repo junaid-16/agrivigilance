@@ -1,4 +1,4 @@
-import 'package:agrivigilance/app/constants/string.dart';
+import 'package:agrivigilance/authentication/app/constants/string.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

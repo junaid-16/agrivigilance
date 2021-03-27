@@ -1,4 +1,4 @@
-import 'package:agrivigilance/app/services/firebase_auth_service.dart';
+import 'package:agrivigilance/authentication/app/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';

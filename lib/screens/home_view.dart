@@ -1,5 +1,5 @@
-import 'package:agrivigilance/app/constants/string.dart';
-import 'package:agrivigilance/app/services/firebase_auth_service.dart';
+import 'package:agrivigilance/authentication/app/constants/string.dart';
+import 'package:agrivigilance/authentication/app/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
