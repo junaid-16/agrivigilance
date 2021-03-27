@@ -58,11 +58,10 @@ class FirebaseAuthService {
     return uid;
   }
 
-  Future<String> signInWithEmailAndPassword(
+  Future<UserModel> signInWithEmailAndPassword(
       String email, String password) async {
-    return (await _firebaseAuth.signInWithEmailAndPassword(
-            email: email, password: password))
-        .user
-        .uid;
+    final authResult = (await _firebaseAuth.signInWithEmailAndPassword(
+        email: email, password: password));
+    return _userFromFirebase(authResult.user);
   }
 }
