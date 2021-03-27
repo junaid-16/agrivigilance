@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:agrivigilance/app/services/firebase_auth_service.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/sign_in_view_model.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/anonymous_sign_in_button.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/google_sign_in_button.dart';
@@ -107,6 +108,9 @@ class SignInWidget extends StatelessWidget {
                         onPressed: () {
                           email = emailController.text;
                           password = passwordController.text;
+                          context
+                              .read<SignInViewModel>()
+                              .signInWithEmailAndPassword(email, password);
                         },
                         child: Text(
                           "LOGIN",

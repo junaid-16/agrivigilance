@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 class SignInViewModel extends ChangeNotifier {
+  String password;
+
   SignInViewModel(this.locator);
 
   final Locator locator;
@@ -13,6 +15,13 @@ class SignInViewModel extends ChangeNotifier {
   Future<void> signInAnonymously() async {
     _setLoading();
     await locator<FirebaseAuthService>().signInAnonymously();
+    _setNotLoading();
+  }
+
+  Future<void> signInWithEmailAndPassword(String email, String password) async {
+    _setLoading();
+    await locator<FirebaseAuthService>()
+        .signInWithEmailAndPassword(email, password);
     _setNotLoading();
   }
 
