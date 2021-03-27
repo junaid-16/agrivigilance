@@ -9,6 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userId = FirebaseAuthService().currentUser();
+
     return Scaffold(
       body: Center(
         child: Column(

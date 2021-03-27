@@ -161,6 +161,7 @@ class InputForm extends StatefulWidget {
 }
 
 class _InputFormState extends State<InputForm> {
+  String email, password;
   final snackBar = SnackBar(
       content:
           Text("乁(ツ゚)ㄏ Try remembering your password... We Won't help you!"));
@@ -194,6 +195,13 @@ class _InputFormState extends State<InputForm> {
           TextFormField(
             controller: widget.passwordController,
             obscureText: true,
+            onFieldSubmitted: (_) {
+              email = widget.emailController.text;
+              password = widget.passwordController.text;
+              context
+                  .read<SignInViewModel>()
+                  .signInWithEmailAndPassword(email, password);
+            },
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
