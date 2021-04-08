@@ -1,9 +1,15 @@
 import 'dart:ui';
 
+<<<<<<< HEAD:lib/ui/views/authentication/sign_in/sign_in_view.dart
 import 'package:agrivigilance/app/services/firebase_auth_service.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/sign_in_view_model.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/anonymous_sign_in_button.dart';
 import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/google_sign_in_button.dart';
+=======
+import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/sign_in_view_model.dart';
+import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/widgets/anonymous_sign_in_button.dart';
+import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/widgets/google_sign_in_button.dart';
+>>>>>>> 043eab25e7385cd063e89255356ed41c2c93af60:lib/authentication/ui/views/authentication/sign_in/sign_in_view.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -161,6 +167,7 @@ class InputForm extends StatefulWidget {
 }
 
 class _InputFormState extends State<InputForm> {
+  String email, password;
   final snackBar = SnackBar(
       content:
           Text("乁(ツ゚)ㄏ Try remembering your password... We Won't help you!"));
@@ -194,6 +201,13 @@ class _InputFormState extends State<InputForm> {
           TextFormField(
             controller: widget.passwordController,
             obscureText: true,
+            onFieldSubmitted: (_) {
+              email = widget.emailController.text;
+              password = widget.passwordController.text;
+              context
+                  .read<SignInViewModel>()
+                  .signInWithEmailAndPassword(email, password);
+            },
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(

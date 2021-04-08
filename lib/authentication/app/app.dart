@@ -1,5 +1,5 @@
-import 'package:agrivigilance/ui/views/authentication/sign_in/sign_in_view.dart';
-import 'package:agrivigilance/ui/views/home/home_view.dart';
+import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/sign_in_view.dart';
+import 'package:agrivigilance/screens/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

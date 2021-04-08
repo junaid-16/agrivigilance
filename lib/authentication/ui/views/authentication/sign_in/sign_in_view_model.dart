@@ -1,4 +1,4 @@
-import 'package:agrivigilance/app/services/firebase_auth_service.dart';
+import 'package:agrivigilance/authentication/app/services/firebase_auth_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
