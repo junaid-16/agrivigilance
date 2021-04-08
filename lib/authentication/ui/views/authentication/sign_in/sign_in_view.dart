@@ -1,15 +1,8 @@
 import 'dart:ui';
 
-<<<<<<< HEAD:lib/ui/views/authentication/sign_in/sign_in_view.dart
-import 'package:agrivigilance/app/services/firebase_auth_service.dart';
-import 'package:agrivigilance/ui/views/authentication/sign_in/sign_in_view_model.dart';
-import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/anonymous_sign_in_button.dart';
-import 'package:agrivigilance/ui/views/authentication/sign_in/widgets/google_sign_in_button.dart';
-=======
 import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/sign_in_view_model.dart';
 import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/widgets/anonymous_sign_in_button.dart';
 import 'package:agrivigilance/authentication/ui/views/authentication/sign_in/widgets/google_sign_in_button.dart';
->>>>>>> 043eab25e7385cd063e89255356ed41c2c93af60:lib/authentication/ui/views/authentication/sign_in/sign_in_view.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
