@@ -24,6 +24,19 @@ class HomeView extends StatelessWidget {
               ),
             ),
             const Spacer(),
+            Container(
+              child: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('users/5mDylgM9JrVDYWxbYoPusCu2GRb2/plant')
+                    .snapshots(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  PlantDiseases plantDisease =
+                      PlantDiseases.fromJson(snapshot.data.docs[0].data());
+                  return Text(plantDisease.status.toString());
+                },
+              ),
+            ),
             Text(userId),
             ElevatedButton(
               onPressed: () {

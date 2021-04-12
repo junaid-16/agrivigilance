@@ -13,7 +13,8 @@ void main() {
         ),
         StreamProvider(
           create: (context) =>
-              context.read<FirebaseAuthService>().onAuthStateChanged, initialData: null,
+              context.read<FirebaseAuthService>().onAuthStateChanged,
+          initialData: null,
         )
       ],
       child: MyApp(),
