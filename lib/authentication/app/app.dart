@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Agrivigilance',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
       home: Consumer<UserModel>(
         builder: (_, user, __) {
           if (user == null) {

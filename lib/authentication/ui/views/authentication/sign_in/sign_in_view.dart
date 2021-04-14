@@ -52,6 +52,7 @@ class SignInViewBody extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class SignInWidget extends StatelessWidget {
   String email, password;
   final emailController = TextEditingController();

@@ -1,11 +1,8 @@
-class PlantDiseases {
-  var status = [];
+import 'package:flutter/material.dart';
 
-  PlantDiseases({this.status});
+class PlantDisease {
+  final String time;
+  final dynamic classes;
 
-  PlantDiseases.fromJson(Map json) {
-    status = json['status'];
-  }
-
-  Map toJson() => {'status': status};
+  const PlantDisease({@required this.classes, @required this.time});
 }
