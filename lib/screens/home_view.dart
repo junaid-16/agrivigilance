@@ -14,8 +14,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    fetchAndSetPlants();
     final userId = FirebaseAuthService().currentUser();
+    fetchAndSetPlants();
 
     return Scaffold(
       body: Container(
@@ -95,8 +95,8 @@ class HomeView extends StatelessWidget {
 
   /// Returns the doughnut series which need to be render.
   List<DoughnutSeries<ChartSampleData, String>> _getDefaultDoughnutSeries() {
-    // var healthy = getHealthyPlantPercent();
-    var healthy = 63.33;
+    var healthy = double.parse(getHealthyPlantPercent().toStringAsFixed(2));
+    //var healthy = 63.33;
     final List<ChartSampleData> chartData = <ChartSampleData>[
       ChartSampleData(x: 'Healthy', y: healthy, text: '$healthy%'),
       ChartSampleData(

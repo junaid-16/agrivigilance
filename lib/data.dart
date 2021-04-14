@@ -29,7 +29,9 @@ Future<void> fetchAndSetPlants() async {
   snapshot.docs.forEach((element) {
     temp.add(element.id);
   });
+
   print(temp);
+
   List<PlantDisease> tempPlantDiseases = [];
   temp.forEach((element) async {
     final value = await FirebaseFirestore.instance
@@ -42,7 +44,7 @@ Future<void> fetchAndSetPlants() async {
     tempPlantDiseases
         .add(PlantDisease(classes: count, time: element.toString()));
   });
-  _plantDiseases = tempPlantDiseases;
+ _plantDiseases = tempPlantDiseases;
 }
 
 void printPlantDiseases() {
@@ -52,10 +54,9 @@ void printPlantDiseases() {
 List<dynamic> getLatestPlantDiseaseResults() {
   print("2");
   try {
-    var result = _plantDiseases[0].classes;
+    var result = _plantDiseases[_plantDiseases.length - 1].classes;
     return result;
   } catch (e) {
-
     print("error $e");
     return [];
   }
