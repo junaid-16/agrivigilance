@@ -4,6 +4,21 @@ import './models/plant_disease.dart';
 
 List<PlantDisease> _plantDiseases = [];
 
+const List _healthyPlantCategories = [
+  3,
+  4,
+  6,
+  10,
+  14,
+  17,
+  19,
+  22,
+  23,
+  24,
+  27,
+  37
+];
+
 Future<void> fetchAndSetPlants() async {
   final snapshot = await FirebaseFirestore.instance
       .collection("users")
@@ -32,4 +47,30 @@ Future<void> fetchAndSetPlants() async {
 
 void printPlantDiseases() {
   print(_plantDiseases[0].classes);
+}
+
+List<dynamic> getLatestPlantDiseaseResults() {
+  print("2");
+  try {
+    var result = _plantDiseases[0].classes;
+    return result;
+  } catch (e) {
+
+    print("error $e");
+    return [];
+  }
+}
+
+double getHealthyPlantPercent() {
+  int healthyCount = 0;
+  print("1");
+  var plantDiseaseList = getLatestPlantDiseaseResults();
+  plantDiseaseList.forEach((element) {
+    if (_healthyPlantCategories.contains(element)) {
+      healthyCount += 1;
+    }
+  });
+  print("Healthy plants: $healthyCount");
+  var percent = healthyCount / plantDiseaseList.length * 100;
+  return percent;
 }

@@ -23,15 +23,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  auth_buttons: ^1.0.0
-  cloud_firestore: ^1.0.4
-  cupertino_icons: ^1.0.2
-  firebase_auth: ^1.0.1
-  flutter_signin_button: ^1.1.0
-  google_sign_in: ^5.0.1
-  google_fonts: ^2.0.0
-  provider: ^5.0.0
-  syncfusion_flutter_charts: ^19.1.56
+  auth_buttons:
+  cloud_firestore:
+  cupertino_icons:
+  firebase_auth:
+  flutter_signin_button:
+  google_sign_in:
+  google_fonts:
+  provider:
+  syncfusion_flutter_charts:
 
 dev_dependencies:
   flutter_test:
