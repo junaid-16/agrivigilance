@@ -61,7 +61,10 @@ class HomeView extends StatelessWidget {
                 style: GoogleFonts.muli(color: Colors.grey[100], fontSize: 20),
               ),
             ),
-            Text(userId,style: GoogleFonts.muli(color: Colors.white, fontSize: 25),),
+            Text(
+              userId,
+              style: GoogleFonts.muli(color: Colors.white, fontSize: 25),
+            ),
             const Spacer(),
             ElevatedButton(
               onPressed: () {
