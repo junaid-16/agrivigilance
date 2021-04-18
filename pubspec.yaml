@@ -32,6 +32,7 @@ dependencies:
   google_fonts:
   provider:
   syncfusion_flutter_charts:
+  delayed_display:
 
 dev_dependencies:
   flutter_test:

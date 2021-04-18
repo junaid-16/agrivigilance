@@ -6,16 +6,15 @@ import 'package:agrivigilance/data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import '../models/chart_sample_data.dart';
+import 'package:delayed_display/delayed_display.dart';
+
+import '../widgets/plant_pie_chart.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final userId = FirebaseAuthService().currentUser();
     fetchAndSetPlants();
+    final userId = FirebaseAuthService().currentUser();
 
     return Scaffold(
       body: Container(
@@ -68,12 +67,7 @@ class HomeView extends StatelessWidget {
               style: GoogleFonts.muli(color: Colors.white, fontSize: 25),
             ),
             const Spacer(),
-            SfCircularChart(
-                title: ChartTitle(
-                  text: "Healthy plants",
-                  textStyle: TextStyle(color: Colors.white),
-                ),
-                series: _getDefaultDoughnutSeries()),
+            PlantPieChart(),
             ElevatedButton(
               onPressed: () {
                 context.read<FirebaseAuthService>().signOut();
@@ -91,27 +85,5 @@ class HomeView extends StatelessWidget {
         },
       ),
     );
-  }
-
-  /// Returns the doughnut series which need to be render.
-  List<DoughnutSeries<ChartSampleData, String>> _getDefaultDoughnutSeries() {
-    var healthy = double.parse(getHealthyPlantPercent().toStringAsFixed(2));
-    //var healthy = 63.33;
-    final List<ChartSampleData> chartData = <ChartSampleData>[
-      ChartSampleData(x: 'Healthy', y: healthy, text: '$healthy%'),
-      ChartSampleData(
-          x: 'Unhealthy', y: 100 - healthy, text: '${100 - healthy}%'),
-    ];
-    return <DoughnutSeries<ChartSampleData, String>>[
-      DoughnutSeries<ChartSampleData, String>(
-          radius: '80%',
-          explode: true,
-          explodeOffset: '10%',
-          dataSource: chartData,
-          xValueMapper: (ChartSampleData data, _) => data.x,
-          yValueMapper: (ChartSampleData data, _) => data.y,
-          dataLabelMapper: (ChartSampleData data, _) => data.text,
-          dataLabelSettings: DataLabelSettings(isVisible: true))
-    ];
   }
 }
