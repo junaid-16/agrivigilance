@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:delayed_display/delayed_display.dart';
 
 import '../widgets/plant_pie_chart.dart';
+import '../widgets/plants_line_chart.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -67,7 +68,8 @@ class HomeView extends StatelessWidget {
               style: GoogleFonts.muli(color: Colors.white, fontSize: 25),
             ),
             const Spacer(),
-            PlantPieChart(),
+            //PlantPieChart(),
+            PlantsLineChart(),
             ElevatedButton(
               onPressed: () {
                 context.read<FirebaseAuthService>().signOut();
@@ -80,7 +82,6 @@ class HomeView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print(getHealthyPlantPercent());
           printPlantDiseases();
         },
       ),
