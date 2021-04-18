@@ -44,34 +44,48 @@ Future<void> fetchAndSetPlants() async {
     tempPlantDiseases
         .add(PlantDisease(classes: count, time: element.toString()));
   });
- _plantDiseases = tempPlantDiseases;
+  _plantDiseases = tempPlantDiseases;
 }
 
-void printPlantDiseases() {
-  print(_plantDiseases[0].classes);
-}
-
-List<dynamic> getLatestPlantDiseaseResults() {
-  print("2");
+// This function returns the list of plant-classes
+List<dynamic> getHealthyPlantCount(index) {
   try {
-    var result = _plantDiseases[_plantDiseases.length - 1].classes;
+    var result = _plantDiseases[index].classes;
     return result;
   } catch (e) {
-    print("error $e");
+    print("[ERROR] $e");
     return [];
   }
 }
 
+// This functions is used in donut chart for healthy and unhealthy plant percentage
+// This return % of healthy plants present in the last plant-disease object present in _plantDiseases
 double getHealthyPlantPercent() {
   int healthyCount = 0;
-  print("1");
-  var plantDiseaseList = getLatestPlantDiseaseResults();
+  var plantDiseaseList = getHealthyPlantCount(_plantDiseases.length - 1);
   plantDiseaseList.forEach((element) {
     if (_healthyPlantCategories.contains(element)) {
       healthyCount += 1;
     }
   });
-  print("Healthy plants: $healthyCount");
   var percent = healthyCount / plantDiseaseList.length * 100;
+  print("Latest healthy plant %: $percent");
   return percent;
+}
+
+// This function is meant to be used in line chart for plants
+// As of now, it prints the list of count of healthy plants of all objects present in _plantDiseases
+void getAllHealthyPlantsNumber() {
+  List healthyList = [];
+  for (int i = 0; i < _plantDiseases.length; i++) {
+    int healthyCount = 0;
+    var plantDiseaseList = getHealthyPlantCount(i);
+    plantDiseaseList.forEach((element) {
+      if (_healthyPlantCategories.contains(element)) {
+        healthyCount += 1;
+      }
+    });
+    healthyList.add(healthyCount);
+  }
+  print(healthyList);
 }

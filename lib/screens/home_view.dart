@@ -82,7 +82,7 @@ class HomeView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          printPlantDiseases();
+          getAllHealthyPlantsNumber();
         },
       ),
     );

@@ -19,7 +19,7 @@ class PlantsLineChart extends StatelessWidget {
             color: Colors.black.withOpacity(0.3),
           ),
           child: FutureBuilder(
-            future: Future.delayed(Duration(seconds: 3)),
+            future: Future.delayed(Duration(seconds: 5)),
             builder: (c, s) => s.connectionState == ConnectionState.done
                 ? SfCartesianChart(
                     plotAreaBorderWidth: 0,
