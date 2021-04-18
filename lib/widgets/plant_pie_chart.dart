@@ -11,17 +11,26 @@ class PlantPieChart extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
-          height: 250,
-          width: 250,
+          height: 275,
+          width: 275,
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.3),
           ),
           child: FutureBuilder(
             future: Future.delayed(Duration(seconds: 3)),
             builder: (c, s) => s.connectionState == ConnectionState.done
-                ? SfCircularChart(series: _getDefaultDoughnutSeries())
+                ? SfCircularChart(
+                    title: ChartTitle(
+                        text: "Plant Health",
+                        textStyle: TextStyle(color: Colors.white)),
+                    series: _getDefaultDoughnutSeries(),
+                    palette: [
+                      Colors.teal,
+                      Colors.red,
+                    ],
+                  )
                 : CircularProgressIndicator(),
           ),
         ),
