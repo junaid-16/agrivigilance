@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../models/chart_sample_data.dart';
@@ -6,18 +8,25 @@ import '../data.dart';
 class PlantPieChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: Future.delayed(Duration(seconds: 3)),
-        builder: (c, s) => s.connectionState == ConnectionState.done
-            ? Container(
-                child: SfCircularChart(
-                    title: ChartTitle(
-                      text: "Healthy plants",
-                      textStyle: TextStyle(color: Colors.white),
-                    ),
-                    series: _getDefaultDoughnutSeries()),
-              )
-            : CircularProgressIndicator());
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
+        child: Container(
+          height: 250,
+          width: 250,
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.3),
+          ),
+          child: FutureBuilder(
+            future: Future.delayed(Duration(seconds: 3)),
+            builder: (c, s) => s.connectionState == ConnectionState.done
+                ? SfCircularChart(series: _getDefaultDoughnutSeries())
+                : CircularProgressIndicator(),
+          ),
+        ),
+      ),
+    );
   }
 
   /// Returns the doughnut series which need to be render.
