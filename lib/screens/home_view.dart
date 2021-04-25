@@ -6,7 +6,6 @@ import 'package:agrivigilance/data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:delayed_display/delayed_display.dart';
 
 import '../widgets/plant_pie_chart.dart';
 import '../widgets/plants_line_chart.dart';

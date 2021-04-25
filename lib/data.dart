@@ -75,7 +75,7 @@ double getHealthyPlantPercent() {
 
 // This function is meant to be used in line chart for plants
 // As of now, it prints the list of count of healthy plants of all objects present in _plantDiseases
-void getAllHealthyPlantsNumber() {
+List<dynamic> getAllHealthyPlantsNumber() {
   List healthyList = [];
   for (int i = 0; i < _plantDiseases.length; i++) {
     int healthyCount = 0;
@@ -87,5 +87,9 @@ void getAllHealthyPlantsNumber() {
     });
     healthyList.add(healthyCount);
   }
-  print(healthyList);
+  return healthyList;
+}
+
+int getTotalPlantsCount() {
+  return(_plantDiseases[0].classes.length);
 }

@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:agrivigilance/data.dart';
 import 'package:flutter/material.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -55,15 +56,22 @@ class PlantsLineChart extends StatelessWidget {
 
   /// The method returns line series to chart.
   List<LineSeries<_ChartData, num>> _getDefaultLineSeries() {
-    final List<_ChartData> chartData = <_ChartData>[
-      _ChartData(1, 70, 30),
-      _ChartData(2, 76, 24),
-      _ChartData(3, 76, 28),
-      _ChartData(4, 82, 18),
-      _ChartData(5, 83, 17),
-      _ChartData(6, 87, 13),
-      _ChartData(7, 91, 09)
-    ];
+    // final List<_ChartData> chartData = <_ChartData>[
+    //   _ChartData(1, 70, 30),
+    //   _ChartData(2, 76, 24),
+    //   _ChartData(3, 76, 28),
+    //   _ChartData(4, 82, 18),
+    //   _ChartData(5, 83, 17),
+    //   _ChartData(6, 87, 13),
+    //   _ChartData(7, 91, 09)
+    // ];
+   
+    var max =  getTotalPlantsCount();
+    double count = -1;
+    List<_ChartData> chartData = getAllHealthyPlantsNumber().map((e) {
+      count++;
+      return _ChartData(count, e, max - e);
+    }).toList();
     return <LineSeries<_ChartData, num>>[
       LineSeries<_ChartData, num>(
           animationDuration: 2500,
