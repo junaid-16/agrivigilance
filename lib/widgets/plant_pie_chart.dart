@@ -31,7 +31,13 @@ class PlantPieChart extends StatelessWidget {
                       Colors.red,
                     ],
                   )
-                : CircularProgressIndicator(),
+                : Center(
+                    widthFactor: 1,
+                    heightFactor: 1,
+                    child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: CircularProgressIndicator())),
           ),
         ),
       ),
