@@ -47,7 +47,13 @@ class PlantsLineChart extends StatelessWidget {
                     tooltipBehavior: TooltipBehavior(enable: true),
                     palette: [Colors.teal, Colors.red],
                   )
-                : CircularProgressIndicator(),
+                : Center(
+                    heightFactor: 1,
+                    widthFactor: 1,
+                    child: SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: CircularProgressIndicator())),
           ),
         ),
       ),
@@ -65,8 +71,8 @@ class PlantsLineChart extends StatelessWidget {
     //   _ChartData(6, 87, 13),
     //   _ChartData(7, 91, 09)
     // ];
-   
-    var max =  getTotalPlantsCount();
+
+    var max = getTotalPlantsCount();
     double count = -1;
     List<_ChartData> chartData = getAllHealthyPlantsNumber().map((e) {
       count++;

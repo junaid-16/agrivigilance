@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/plant_pie_chart.dart';
 import '../widgets/plants_line_chart.dart';
 
 class HomeView extends StatelessWidget {
