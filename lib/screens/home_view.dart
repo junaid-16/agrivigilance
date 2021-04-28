@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     fetchAndSetPlants();
+    fetchAndSetCattle();
     precacheImage(AssetImage("assets/images/black-concrete-wall.jpg"), context);
     final userId = FirebaseAuthService().currentUser();
 
@@ -112,6 +113,7 @@ class HomeView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
         onPressed: () {
+          fetchAndSetCattle();
           print("It will display roject Info");
         },
         child: Icon(

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../models/chart_sample_data.dart';
+import '../data.dart';
 
 class CattleBarChart extends StatelessWidget {
   @override
@@ -53,22 +54,23 @@ class CattleBarChart extends StatelessWidget {
 
   /// Returns the list of chart series which need to render on the barchart.
   List<BarSeries<ChartSampleData, String>> _getDefaultBarSeries() {
+    Map<String, num> _cattleData = getCattleData();
     final List<ChartSampleData> chartData = <ChartSampleData>[
       ChartSampleData(
         x: 'Camel',
-        y: 2,
+        y: _cattleData["camel"],
       ),
       ChartSampleData(
         x: 'Sheep',
-        y: 6,
+        y: _cattleData["sheep"],
       ),
       ChartSampleData(
         x: 'Buffalo',
-        y: 12,
+        y: _cattleData["buffalo"],
       ),
       ChartSampleData(
         x: 'Cow',
-        y: 10,
+        y: _cattleData["cow"],
       ),
     ];
     return <BarSeries<ChartSampleData, String>>[

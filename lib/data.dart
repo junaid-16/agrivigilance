@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './models/plant_disease.dart';
 
+// PLANT
+
 List<PlantDisease> _plantDiseases = [];
 
 const List _healthyPlantCategories = [
@@ -92,5 +94,29 @@ List<dynamic> getAllHealthyPlantsNumber() {
 
 // This returns total number of plants
 int getTotalPlantsCount() {
-  return(_plantDiseases[0].classes.length);
+  return (_plantDiseases[0].classes.length);
+}
+
+// CATTLE
+
+Map<String, num> _cattleCount;
+
+Future<void> fetchAndSetCattle() async {
+  final response = await FirebaseFirestore.instance
+      .collection("users")
+      .doc(FirebaseAuth.instance.currentUser.uid)
+      .collection("cattle")
+      .doc("count")
+      .get();
+  Map<String, num> temp = {
+    "cow": response.data()["cow"],
+    "buffalo": response.data()["buffalo"],
+    "sheep": response.data()["sheep"],
+    "camel": response.data()["camel"],
+  };
+  _cattleCount = temp;
+}
+
+Map<String, num> getCattleData() {
+  return _cattleCount;
 }
