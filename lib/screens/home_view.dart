@@ -8,11 +8,14 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/plants_line_chart.dart';
+import '../widgets/plant_pie_chart.dart';
+import '../widgets/cattle_bar_chart.dart';
 
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     fetchAndSetPlants();
+    precacheImage(AssetImage("assets/images/black-concrete-wall.jpg"), context);
     final userId = FirebaseAuthService().currentUser();
 
     return Scaffold(
@@ -61,27 +64,60 @@ class HomeView extends StatelessWidget {
                 style: GoogleFonts.muli(color: Colors.grey[100], fontSize: 20),
               ),
             ),
-            Text(
-              userId,
-              style: GoogleFonts.muli(color: Colors.white, fontSize: 25),
+            // Text(
+            //   userId,
+            //   style: GoogleFonts.muli(color: Colors.white, fontSize: 25),
+            // ),
+            const Spacer(),
+            Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    PlantPieChart(),
+                    SizedBox(width: 15),
+                    CattleBarChart(),
+                  ],
+                ),
+                SizedBox(height: 15),
+                PlantsLineChart(),
+              ],
             ),
             const Spacer(),
-            //PlantPieChart(),
-            PlantsLineChart(),
-            ElevatedButton(
-              onPressed: () {
-                context.read<FirebaseAuthService>().signOut();
-              },
-              child: Text(Strings.signOut),
+            SizedBox(
+              width: 250,
+              height: 60,
+              child: OutlinedButton(
+                onPressed: () {
+                  context.read<FirebaseAuthService>().signOut();
+                },
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      side: BorderSide(color: Colors.tealAccent, width: 3),
+                    ),
+                  ),
+                ),
+                child: Text(
+                  Strings.signOut,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
             ),
             const Spacer(),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal,
         onPressed: () {
-          getAllHealthyPlantsNumber();
+          print("It will display roject Info");
         },
+        child: Icon(
+          Icons.lightbulb_outline,
+          color: Colors.white,
+        ),
       ),
     );
   }

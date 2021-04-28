@@ -15,7 +15,7 @@ class PlantsLineChart extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           height: 275,
-          width: 900,
+          width: 915,
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.3),
           ),
@@ -33,7 +33,7 @@ class PlantsLineChart extends StatelessWidget {
                         overflowMode: LegendItemOverflowMode.wrap),
                     primaryXAxis: NumericAxis(
                       edgeLabelPlacement: EdgeLabelPlacement.shift,
-                      interval: 2,
+                      interval: 1,
                       majorGridLines: MajorGridLines(width: 0),
                     ),
                     primaryYAxis: NumericAxis(

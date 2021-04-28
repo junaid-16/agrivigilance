@@ -90,6 +90,7 @@ List<dynamic> getAllHealthyPlantsNumber() {
   return healthyList;
 }
 
+// This returns total number of plants
 int getTotalPlantsCount() {
   return(_plantDiseases[0].classes.length);
 }

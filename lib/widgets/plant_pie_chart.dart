@@ -13,8 +13,9 @@ class PlantPieChart extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
-          height: 275,
-          width: 275,
+          height: 300,
+          width: 300,
+          //padding: EdgeInsets.all(25),
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.3),
           ),
