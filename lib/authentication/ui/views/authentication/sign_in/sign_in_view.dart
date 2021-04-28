@@ -68,7 +68,7 @@ class SignInWidget extends StatelessWidget {
             width: 500,
             height: 600,
             decoration: new BoxDecoration(
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.black.withOpacity(0.2),
               border:
                   Border.all(width: 1, color: Colors.white.withOpacity(0.5)),
               borderRadius: BorderRadius.circular(25),
