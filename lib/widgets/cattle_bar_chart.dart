@@ -15,9 +15,9 @@ class CattleBarChart extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
-          height: 300,
+          height: 275,
           width: 600,
-          padding: EdgeInsets.only(top: 0, bottom: 25, left: 25, right: 25),
+          padding: EdgeInsets.only(top: 0, bottom: 0, left: 25, right: 25),
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.3),
           ),
@@ -31,6 +31,7 @@ class CattleBarChart extends StatelessWidget {
                         textStyle: TextStyle(color: Colors.white)),
                     primaryXAxis: CategoryAxis(
                       majorGridLines: MajorGridLines(width: 0),
+                      labelStyle: TextStyle(color: Colors.white),
                     ),
                     primaryYAxis: NumericAxis(
                         majorGridLines: MajorGridLines(width: 0),

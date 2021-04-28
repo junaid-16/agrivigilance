@@ -13,7 +13,7 @@ class PlantPieChart extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
-          height: 300,
+          height: 275,
           width: 300,
           //padding: EdgeInsets.all(25),
           decoration: BoxDecoration(
@@ -27,6 +27,10 @@ class PlantPieChart extends StatelessWidget {
                         text: "Plant Health",
                         textStyle: TextStyle(color: Colors.white)),
                     series: _getDefaultDoughnutSeries(),
+                    // legend:  Legend(
+                    //     isVisible: true,
+                    //     textStyle: TextStyle(color: Colors.white),
+                    //     overflowMode: LegendItemOverflowMode.wrap),
                     palette: [
                       Colors.teal,
                       Colors.red,

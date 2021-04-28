@@ -114,6 +114,7 @@ Future<void> fetchAndSetCattle() async {
     "sheep": response.data()["sheep"],
     "camel": response.data()["camel"],
   };
+  print(temp);
   _cattleCount = temp;
 }
 

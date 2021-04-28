@@ -16,6 +16,7 @@ class PlantsLineChart extends StatelessWidget {
         child: Container(
           height: 275,
           width: 915,
+          padding: EdgeInsets.only(top: 0,bottom: 0, left: 25,right: 25),
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.3),
           ),
