@@ -17,12 +17,16 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  bool showInfo = false;
-
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     fetchAndSetPlants();
     fetchAndSetCattle();
+  }
+
+  bool showInfo = false;
+  @override
+  Widget build(BuildContext context) {
     precacheImage(AssetImage("assets/images/black-concrete-wall.jpg"), context);
     final userId = FirebaseAuthService().currentUser();
 
@@ -197,7 +201,6 @@ class Info extends StatelessWidget {
               fontSize: 21,
               color: Colors.grey[100],
             ),
-            
           ),
           SizedBox(height: 10),
           Padding(
